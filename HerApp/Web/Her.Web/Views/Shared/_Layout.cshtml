@@ -1,0 +1,55 @@
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Her</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+	<link href="~/css/admin.css" rel="stylesheet" />
+	<link href="~/dist/css/AdminLTE.css" rel="stylesheet" />
+	<link href="~/dist/css/skins/_all-skins.css" rel="stylesheet" />
+	@*@<script src="~/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="~/dist/js/demo.js"></script>
+		<script src="~/dist/js/adminlte.js"></script>
+		<!-- jQuery UI 1.11.4 -->
+		<script src="~/bower_components/jquery-ui/jquery-ui.min.js"></script>
+		<script>
+			$.widget.bridge('uibutton', $.ui.button);
+		</script>
+		<script src="~/js/admin.js"></script>*@
+</head>
+<body class="hold-transition skin-blue sidebar-mini" id="dupa">
+	<div class="wrapper">
+		@Html.Partial("_MainPartial")
+		<div class="content-wrapper">
+			@RenderBody()
+		</div>
+		@Html.Partial("_MainSidebar")
+	</div>
+	<!-- jQuery 3 -->
+	<script src="~/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="~/bower_components/fastclick/lib/fastclick.js"></script>
+	<script src="~/dist/js/adminlte.min.js"></script><!-- Sparkline -->
+	<script src="~/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script><!-- jvectormap  -->
+	<script src="~/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+	<script src="~/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script><!-- SlimScroll -->
+	<script src="~/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script><!-- ChartJS -->
+	<script src="~/bower_components/chart.js/Chart.js"></script>
+	<script src="~/dist/js/demo.js"></script>
+	<script src="~/bower_components/select2/dist/js/select2.full.min.js"></script>
+	<script src="~/plugins/input-mask/jquery.inputmask.js"></script>
+	<script src="~/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+	<script src="~/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+	<script src="~/bower_components/moment/min/moment.min.js"></script>
+	<script src="~/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+	<script src="~/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+	<script src="~/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+	<script src="~/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+	<script src="~/plugins/iCheck/icheck.min.js"></script>
+	<script src="~/js/site.js"></script>
+</body>
+</html>

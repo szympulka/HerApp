@@ -1,0 +1,104 @@
+﻿<section class="content-header">
+    <h1>
+        Documentation
+        <small>v1.0</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a asp-controller="Home" asp-action="Index"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Doc</li>
+    </ol>
+</section>
+<section class="content">
+    <!-- row -->
+    <div class="row">
+        <div class="col-md-12">
+			<ul class="timeline">
+				<li class="time-label">
+					<span class="bg-green">
+						Version 1.0
+					</span>
+				</li>
+				<li>
+					<i class="fa fa-dashboard bg-red"></i>
+					<div class="timeline-item">
+						<span class="time"><i class="fa fa-clock-o"></i> 20/07/2018</span>
+						<h3 class="timeline-header"><a asp-action="Tasks" asp-controller="Task">MPK and Weather support</a> </h3>
+						<div class="timeline-body">
+							Dodano informacje o pogodzie na dany dzień. Dodatkowo są wyświetlane informacje dotyczące wydarzeń drogowych w MPK
+						</div>
+						<div class="timeline-footer">
+							<a class="btn btn-warning btn-flat btn-xs loader" asp-action="Index" asp-controller="Home">View dashboard</a>
+						</div>
+					</div>
+				</li>
+				@*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*@
+
+				<li>
+					<i class="fa fa-film bg-green"></i>
+					<div class="timeline-item">
+						<span class="time"><i class="fa fa-clock-o"></i> 20/07/2018</span>
+						<h3 class="timeline-header"><a asp-action="Tasks" asp-controller="Task">Cinema support</a> </h3>
+						<div class="timeline-body">
+							Wyszkuaj film na który chcesz iść a następnie zobaczysz kina i godziny w których dany film jest grany.
+						</div>
+						<div class="timeline-footer">
+							<a class="btn btn-warning btn-flat btn-xs loader" asp-action="GetCinemaEvents" asp-controller="Wro">View cinema events</a>
+						</div>
+					</div>
+				</li>
+				@*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*@
+				<li>
+					<i class="fa fa-university bg-red"></i>
+					<div class="timeline-item">
+						<span class="time"><i class="fa fa-clock-o"></i> 10/06/2018</span>
+						<h3 class="timeline-header"><a asp-action="Tasks" asp-controller="Task">Wroc support</a> </h3>
+						<div class="timeline-body">
+							Zobacz co się dzieje we Wrocławiu!. Znajdź wydarzenie odpowiednie dla Ciebie i się na nie wybierz.
+						</div>
+						<div class="timeline-footer">
+							<a class="btn btn-warning btn-flat btn-xs loader" asp-action="GetWroEvents" asp-controller="Wro">View wro events</a>
+						</div>
+					</div>
+				</li>
+				@*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*@
+				<li>
+					<i class="fa fa-envelope bg-blue"></i>
+					<div class="timeline-item">
+						<span class="time"><i class="fa fa-clock-o"></i> 20/052018</span>
+						<h3 class="timeline-header"><a asp-action="Tasks" asp-controller="Task">Task support</a> </h3>
+						<div class="timeline-body">
+							Dodaj swoje zadanie do listy które masz wykonać. System sam Ci przypomni w odpowiednim czasie o zadaniu
+						</div>
+						<div class="timeline-footer">
+							<a class="btn btn-warning btn-flat btn-xs loader" asp-action="Tasks" asp-controller="Task">View tasks</a>
+						</div>
+					</div>
+				</li>
+				@*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*@
+				<li>
+					<i class="fa fa-comments bg-yellow"></i>
+					<div class="timeline-item">
+						<span class="time"><i class="fa fa-clock-o"></i> 10/05/2014</span>
+						<h3 class="timeline-header"><a href="#">Notification</a></h3>
+						<div class="timeline-body">
+							Dodano system powiadomień. Powiadomienia pojawaiją się w aplikacji mobilner oraz w codziennym mailu
+						</div>
+					</div>
+				</li>
+				@*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*@
+				<li>
+					<i class="fa  fa-check bg-green"></i>
+					<div class="timeline-item">
+						<span class="time"><i class="fa fa-clock-o"></i> 10/042018</span>
+						<h3 class="timeline-header"><a href="#">Daily notification</a></h3>
+						<div class="timeline-body">
+							Dodano system dziennych powiadomień. Użytkownik może sprecyzować co go interesuje aby bot samodzielnie wysłał mu interesujące informacje
+						</div>
+					</div>
+				</li>
+			</ul>
+        </div>
+        <!-- /.col -->
+    </div>
+
+</section>

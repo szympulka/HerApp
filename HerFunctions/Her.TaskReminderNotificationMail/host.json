@@ -1,0 +1,20 @@
+{
+	"disabled": false,
+	"bindings": [
+		{
+			"name": "message",
+			"type": "SendGrid",
+			"direction": "out",
+			"to": "none",
+			"from": "support@her.bot",
+			"AzureWebJobsSendGridApiKey": "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"
+		},
+		{
+			"type": "queueTrigger",
+			"direction": "in",
+			"name": "notificationtaskqueue",
+			"queueName": "notificationtaskqueue",
+			"connection": "DefaultEndpointsProtocol=https;AccountName=herstorage;AccountKey=3hgVDRVErABFD79t5ZUTQD0dAPdqhjQ+QoB1kBJBekUoR38Ld/hTvpZ9QI7Yq4abAivKCFUJDrUJpMl+9B0vog==;EndpointSuffix=core.windows.net"
+		}
+	]
+}

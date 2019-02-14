@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Her.DailyNotificationMail", "Her.DailyNotificationMail\Her.DailyNotificationMail.csproj", "{021B80D9-71D9-4464-94A9-9CC57D2FAE10}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Her.HttpScheduler", "Her.HttpScheduler\Her.HttpScheduler.csproj", "{1BB1DBCA-C5F8-4897-84EB-D73461D2400E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Her.TaskReminderNotificationMail", "Her.TaskReminderNotificationMail\Her.TaskReminderNotificationMail.csproj", "{D5649BE0-B225-4C57-BA1B-0A278148A797}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{021B80D9-71D9-4464-94A9-9CC57D2FAE10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{021B80D9-71D9-4464-94A9-9CC57D2FAE10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{021B80D9-71D9-4464-94A9-9CC57D2FAE10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{021B80D9-71D9-4464-94A9-9CC57D2FAE10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BB1DBCA-C5F8-4897-84EB-D73461D2400E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BB1DBCA-C5F8-4897-84EB-D73461D2400E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BB1DBCA-C5F8-4897-84EB-D73461D2400E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BB1DBCA-C5F8-4897-84EB-D73461D2400E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5649BE0-B225-4C57-BA1B-0A278148A797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5649BE0-B225-4C57-BA1B-0A278148A797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5649BE0-B225-4C57-BA1B-0A278148A797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5649BE0-B225-4C57-BA1B-0A278148A797}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C969EE53-4B7B-4653-936D-D88E7ED27C7B}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://hercode.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Her.TaskReminderNotificationMail\\Her.TaskReminderNotificationMail.csproj
+		SccProjectName1 = Her.TaskReminderNotificationMail
+		SccLocalPath1 = Her.TaskReminderNotificationMail
+		SccProjectUniqueName2 = Her.HttpScheduler\\Her.HttpScheduler.csproj
+		SccProjectName2 = Her.HttpScheduler
+		SccLocalPath2 = Her.HttpScheduler
+		SccProjectUniqueName3 = Her.DailyNotificationMail\\Her.DailyNotificationMail.csproj
+		SccProjectName3 = Her.DailyNotificationMail
+		SccLocalPath3 = Her.DailyNotificationMail
+	EndGlobalSection
+EndGlobal

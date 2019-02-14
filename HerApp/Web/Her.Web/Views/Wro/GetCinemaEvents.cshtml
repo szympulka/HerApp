@@ -1,0 +1,155 @@
+﻿@model Tuple<Dictionary<string, Her.ViewModel.WrocViewModels.WroCinemaMovieEventsViewModel>, IEnumerable<string>, string>
+@{
+	var first = Model.Item1.Take(Model.Item1.Count / 3);
+	var s = Model.Item1.Skip(first.Count()).Take(first.Count());
+	var d = Model.Item1.Skip(first.Count() * 2);
+	var options = new List<string>();
+}
+<style>
+	.box-body {
+		margin-right: 20px;
+	}
+</style>
+<div class="invoice" style="margin:0">
+	<div class="row">
+		<div class="box box-info col-md-12">
+			<div class="box-header with-border">
+				<h3 class="box-title">Horizontal Form</h3>
+			</div>
+			<!-- /.box-header -->
+			<!-- form start -->
+			<form class="form-horizontal" asp-controller="Wro" asp-action="GetCinemaEvents">
+				<div class="box-body" style="width:20%; display:inline-block">
+					<div class="form-group">
+						<label>Date:</label>
+
+						<div class="input-group date">
+							<div class="input-group-addon">
+								<i class="fa fa-calendar"></i>
+							</div>
+							<input type="text" class="form-control pull-right" name="date" id="datepicker">
+						</div>
+					</div>
+
+				</div>
+				<div class="box-body" style="width:20%; display:inline-block">
+					<div class="form-group">
+						<label>Category:</label>
+
+						<div class="input-group date">
+							<div class="input-group-addon">
+								<i class="fa  fa-bars"></i>
+							</div>
+							<select class="js-example-basic-single" style="width: 100%" name="category">
+								<option selected disabled>Category</option>
+								<option value=""></option>
+								@foreach (var item in Model.Item2)
+								{
+									<option value="@item">@item</option>
+								}
+							</select>
+						</div>
+					</div>
+
+				</div>
+				<!-- /.box-body -->
+				<div class="box-footer">
+					<button type="submit" class="btn btn-info pull-right">Find</button>
+				</div>
+				<!-- /.box-footer -->
+			</form>
+		</div>
+		<div class="col-md-4">
+			@foreach (var item in s)
+			{
+				<div class="box box-warning">
+					<div class="box-header with-border">
+						<h3 class="box-title"><a asp-controller="Wro" asp-action="GetMovieEventDetails" asp-route-date="@Model.Item3" asp-route-movie="@item.Key" class="loader">@item.Key</a></h3>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse">
+								<i class="fa fa-minus"></i>
+							</button>
+						</div>
+						<!-- /.box-tools -->
+					</div>
+					<!-- /.box-header -->
+					<div class="box-body">
+						<a sp-controller="Wro" asp-action="GetMovieEventDetails" asp-route-date="@Model.Item3" asp-route-movie="@item.Key" class="loader">
+							<img src="@item.Value.Photo" style="width:100%;height:100%" />
+						</a>
+						@foreach (var cat in item.Value.Categories)
+						{
+							<span class="label label-success">@cat</span>
+						}
+					</div>
+					<!-- /.box-body -->
+				</div>
+			}
+		</div>
+		<div class="col-md-4">
+			@foreach (var item in first)
+			{
+				<div class="box box-warning">
+					<div class="box-header with-border">
+						<h3 class="box-title"><a asp-controller="Wro" asp-action="GetMovieEventDetails" asp-route-date="@Model.Item3" asp-route-movie="@item.Key" class="loader">@item.Key</a></h3>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse">
+								<i class="fa fa-minus"></i>
+							</button>
+						</div>
+						<!-- /.box-tools -->
+					</div>
+					<!-- /.box-header -->
+					<div class="box-body">
+						<a sp-controller="Wro" asp-action="GetMovieEventDetails" asp-route-date="@Model.Item3" asp-route-movie="@item.Key" class="loader">
+							<img src="@item.Value.Photo" style="width:100%;height:100%" />
+						</a>
+						@foreach (var cat in item.Value.Categories)
+						{
+							<span class="label label-success">@cat</span>
+						}
+					</div>
+					<!-- /.box-body -->
+				</div>
+			}
+		</div>
+		<div class="col-md-4">
+			@foreach (var item in d)
+			{
+				<div class="box box-warning">
+					<div class="box-header with-border">
+						<h3 class="box-title"><a asp-controller="Wro" asp-action="GetMovieEventDetails" asp-route-date="@Model.Item3" asp-route-movie="@item.Key" class="loader">@item.Key</a></h3>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse">
+								<i class="fa fa-minus"></i>
+							</button>
+						</div>
+						<!-- /.box-tools -->
+					</div>
+					<!-- /.box-header -->
+					<div class="box-body">
+						<a sp-controller="Wro" asp-action="GetMovieEventDetails" asp-route-date="@Model.Item3" asp-route-movie="@item.Key" class="loader">
+							<img src="@item.Value.Photo" style="width:100%;height:100%" />
+						</a>
+						@foreach (var cat in item.Value.Categories)
+						{
+							<span class="label label-success">@cat</span>
+						}
+					</div>
+					<!-- /.box-body -->
+				</div>
+			}
+		</div>
+	</div>
+</div>
+<script>
+	$(function () {
+		$('#datepicker').datepicker({
+			autoclose: true,
+			format: "dd/mm/yyyy"
+		});
+	});
+	$(document).ready(function () {
+		$('.js-example-basic-single').select2();
+	});
+</script>

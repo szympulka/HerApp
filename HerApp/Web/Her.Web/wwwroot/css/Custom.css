@@ -1,0 +1,27 @@
+﻿.click {
+    cursor: pointer;
+}
+
+    .click:hover {
+        background-color: #d2d2d2;
+    }
+
+#userConfigurationDashboard span {
+	color: white;
+}
+
+#userConfigurationDashboard span:hover {
+	color: #ccc;
+}
+
+#userProfil .config{
+	color:#bbb;
+}
+
+#userProfil .config:hover {
+	color: #999;
+	cursor:pointer;
+}
+.content-header {
+	margin-bottom: 20px;
+}

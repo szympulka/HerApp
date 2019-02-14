@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"AzureMapsName": {
+			"type": "string",
+			"metadata": {
+				"description": "Azure Maps"
+			}
+		}
+	},
+	"variables": {
+		"pricingSpec": "S0"
+	},
+	"resources": [
+			{
+				"type": "Microsoft.Maps/accounts",
+				"sku": {
+					"name": "[variables('pricingSpec')]"
+				},
+				"name": "[parameters('AzureMapsName')]",
+				"apiVersion": "2018-05-01",
+				"location": "global",
+				"properties": {}
+			}
+	],
+	"outputs": {}
+}

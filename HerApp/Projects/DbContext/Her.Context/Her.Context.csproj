@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20180708134607_080720181543.cs" />
+    <Compile Remove="Migrations\20180708134700_080720181547.cs" />
+    <Compile Remove="Migrations\20180708134913_080720181549.cs" />
+    <Compile Remove="Migrations\20180708135348_080720181556.cs" />
+    <Compile Remove="Migrations\20180708135532_080720181556.cs" />
+    <Compile Remove="Migrations\20180708161812_080720181817.cs" />
+    <Compile Remove="Migrations\20180708175943_080720181957.cs" />
+    <Compile Remove="Migrations\20180709190707_0907201812106.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.0" />
+    <PackageReference Include="ReflectionIT.Mvc.Paging" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BoundedContext\Her.Common\Her.Common.csproj" />
+    <ProjectReference Include="..\..\BoundedContext\Her.Domain\Her.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

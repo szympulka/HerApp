@@ -1,0 +1,84 @@
+﻿@model Her.ViewModel.WrocViewModels.WroEventsViewModel
+
+@{
+	ViewData["Title"] = "GetWroEvents";
+}
+@{
+	var nextPage = "/Wro/GetWroEvents?page=" + (Model.Page + 1);
+	var prevPage = "/Wro/GetWroEvents?page=" + (Model.Page - 1);
+}
+<form asp-controller="Wro" asp-action="GetWroEvents">
+	<div style="padding: 20px 15px 15px 15px" class="row">
+		<div class="row">
+			<div class="col-md-2">
+				@if (Model.Page > 0)
+				{
+					<button type="button" style="width: 100px;float:right" class="btn btn-block btn-primary btn-falt" onclick="@(Html.Raw(String.Format("window.location.href='"+prevPage+"'")))"><span class="fa fa-arrow-left"></span> Preview</button>
+				}
+				else
+				{
+					<button type="button" style="width: 100px;float:right" class="btn btn-block btn-default btn-falt" disabled><span class="fa fa-arrow-left"></span> Preview</button>
+				}
+			</div>
+			<div class="col-md-8">
+			</div>
+
+			<div class="col-md-2">
+				@if (Model.Page != Model.LastPage)
+				{
+					<button type="button" style="width: 100px; float:left" class="btn btn-block btn-primary btn-sm" onclick="@(Html.Raw(String.Format("window.location.href='"+nextPage+"'")))">Next <span class="fa fa-arrow-right"></span></button>
+				}
+				else
+				{
+					<button type="button" style="width: 100px; float:left" class="btn btn-block btn-default btn-sm" disabled> Next<span class="fa fa-arrow-right"></span></button>
+				}
+			</div>
+		</div>
+	</div>
+	<div class="row" style="padding: 15px 15px 0 15px">
+		@foreach (var item in Model.Events)
+		{
+			<div class="col-md-4">
+				<div class="box box-warning">
+					<div class="box-header with-border">
+						<h3 class="box-title"><a  asp-controller="Wro" asp-action="GetWroEventDetails" asp-route-WrocItemsId="@item.WrocItemsId" class="loader">@item.PlaceName</a></h3>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						</div>
+						<!-- /.box-tools -->
+					</div>
+					<!-- /.box-header -->
+					<div class="box-body" style="min-height:190px;max-height:190px;">
+						<div class="row">
+							<div class="col-md-4"><a asp-controller="Wro" asp-action="GetWroEventDetails" asp-route-WrocItemsId="@item.WrocItemsId" class="loader"><img src="@item.Img" style="width: 100%; height:150px" /></a></div>
+							<div class="col-md-8">
+								<p><b>@item.Title</b></p>
+								<p>Type: <b>@item.Ticketing</b>,</p>
+								@if (item.Premiere)
+								{
+									<p>Premiere: <span class="fa fa-check" style="color:green;"></span></p>
+								}
+								else
+								{
+									<p>Premiere: <span class="fa fa-close" style="color:red;"></span></p>
+								}
+								<p>
+									@foreach (var category in item.Categories)
+									{
+										<span class="label label-success">@category</span>
+									}
+								</p>
+							</div>
+						</div>
+						<a asp-controller="Wro" asp-action="GetWroEventDetails" asp-route-WrocItemsId="@item.WrocItemsId" class="loader">
+							<input type="button" class="btn btn-block btn-info btn-sm" style="float:right; width:60px;" value="Details"/>
+						</a>					
+					</div>
+					<!-- /.box-body -->
+				</div>
+				<!-- /.box -->
+			</div>
+		}
+	</div>
+
+</form>

@@ -1,0 +1,276 @@
+﻿@using Her.Commons.Enums
+@using Her.ViewModel.TasksViewModels
+@model Tuple<IList<Her.ViewModel.TasksViewModels.UserTaskCategoryViewModel>, long>
+
+@{
+    ViewData["Title"] = "Tasks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Tasks
+        <small>TODO</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Tasks</li>
+    </ol>
+</section>
+<style>
+	.click:hover {
+		background: #e3e3e3
+	}
+</style>
+<div class="row">
+	<div class="col-md-5">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">Condensed Full Width Table</h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body no-padding">
+				<table class="table table-condensed">
+					<tbody>
+						<tr>
+							<th style="width: 5%x">#</th>
+							<th style="width: 45%">Category</th>
+							<th style="width: 40%">Progress</th>
+							<th style="width: 5%">%</th>
+							<th style="width: 5%">Status</th>
+						</tr>
+						@foreach (var task in Model.Item1)
+						{
+							<tr class="click" onclick="@(Html.Raw(String.Format("window.location.href='../Task/Tasks?taskChoosed="+task.Id+"'")))" value="Go to task" style="cursor:pointer;">
+								<td>@task.Id</td>
+								<td>@task.Category</td>
+								@if (task.TaskCount > 0)
+								{
+									if (task.TaskReadyCout * 100 / task.TaskCount <= 30)
+									{
+										<td>
+											<div class="progress progress-xs">
+												<div class="progress-bar progress-bar-danger" style="width: @(task.TaskReadyCout*100/ task.TaskCount)%"></div>
+											</div>
+										</td>
+										<td><span class="badge bg-red">@(task.TaskReadyCout * 100 / task.TaskCount)%</span></td>
+
+									}
+									else if (task.TaskReadyCout * 100 / task.TaskCount <= 75)
+									{
+										<td>
+											<div class="progress progress-xs">
+												<div class="progress-bar progress-bar-warning" style="width: @(task.TaskReadyCout*100/ task.TaskCount)%"></div>
+											</div>
+										</td>
+										<td><span class="badge label-warning">@(task.TaskReadyCout * 100 / task.TaskCount)%</span></td>
+
+									}
+									else if (task.TaskReadyCout * 100 / task.TaskCount < 100)
+									{
+										<td>
+											<div class="progress progress-xs">
+												<div class="progress-bar progress-bar-info" style="width: @(task.TaskReadyCout*100/ task.TaskCount)%"></div>
+											</div>
+										</td>
+										<td><span class="badge label-info">@(task.TaskReadyCout * 100 / task.TaskCount)%</span></td>
+
+									}
+									else if (task.TaskReadyCout * 100 / task.TaskCount == 100)
+									{
+										<td>
+											<div class="progress progress-xs">
+												<div class="progress-bar progress-bar-success" style="width: @(task.TaskReadyCout*100/ task.TaskCount)%"></div>
+											</div>
+										</td>
+										<td><span class="badge label-success">@(task.TaskReadyCout * 100 / task.TaskCount)%</span></td>
+
+									}
+								}
+								else
+								{
+									<td>
+										Add tasks if you wanna see statistics
+									</td>
+									<td></td>
+								}
+								@if (task.TaskReadyCout > 0)
+								{
+
+									if (task.TaskCount == task.TaskReadyCout)
+									{
+										<td><span class="label label-success">Done</span></td>
+
+									}
+									else if (task.TaskReadyCout > 0)
+									{
+										<td><span class="label label-warning">Pending</span></td>
+									}
+								}
+								else
+								{
+									<td><span class="label label-danger">Denied</span></td>
+								}
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<form asp-action="AddCategoryTask" method="post">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<div class="form-group">
+						<input name="name" class="form-control" />
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Create" class="btn btn-default" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-7">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">Simple Full Width Table</h3>
+
+				<div class="box-tools">
+					<ul class="pagination pagination-sm no-margin pull-right">
+						<li><a href="#">«</a></li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">»</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body no-padding">
+				<table class="table">
+					<tbody>
+						<tr>
+							<th style="width: 5%">#</th>
+							<th style="width: 40%">Task</th>
+							<th style="width: 20%">Time to end</th>
+							<th style="width: 10%">Remind</th>
+							<th style="width: 5%">IsDone</th>
+							<th style="width: 15%">Action</th>
+						</tr>
+						@if (Model.Item1.Count == 0 || Model.Item1.First(x => x.Id == Model.Item2).Task.Count == 0)
+						{
+							<tr>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
+						}
+						else
+						{
+							foreach (var task in Model.Item1.First(x => x.Id == Model.Item2).Task)
+							{
+								<tr class="click">
+
+									<th>@task.TaskCategoryId</th>
+									<th>@task.Name</th>
+									<th>@task.TodoDate?.ToString("g")</th>
+									@if (task.Remind.HasValue)
+									{
+										<th>@task.Remind.Value.TotalMinutes</th>
+
+									}
+									else
+									{
+										<th></th>
+									}
+									<th>@task.IsDone</th>
+									<th>
+										<form asp-action="RemoveTask" method="post" asp-route-id="@task.Id" asp-route-categoryId="@Model.Item2">
+											<button type="submit" class="btn btn-block btn-danger btn-xs">Delete</button>
+										</form>
+										<form asp-action="ChangeTaskStatus" method="post" asp-route-id="@task.Id" asp-route-categoryId="@Model.Item2">
+											<button type="submit" class="btn btn-block btn-info btn-xs">Change status</button>
+										</form>
+										<button type="button" class="btn btn-block btn-warning btn-xs">Edit</button>
+									</th>
+								</tr>
+
+							}
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="box box-success">
+			<div class="box-header with-border">
+				<h3 class="box-title">Create new task</h3>
+			</div>
+			<form asp-action="AddTask" method="post">
+				<input name="categoryId" value="@Model.Item2" style="display: none" />
+
+				<div class="input-group col-md-3" style="padding-right: 15px;float: left">
+					<div class="input-group-addon">
+						<i class="fa fa-terminal"></i>
+					</div>
+					<input name="name" class="form-control" placeholder="Name" />
+				</div>
+
+				<div class="input-group col-md-3" style="float: left">
+					<div class="input-group-addon">
+						<i class="fa fa-calendar"></i>
+					</div>
+					<input type="text" name="TodoDate" class="form-control pull-right" id="datepicker" placeholder="todo date">
+				</div>
+
+				<div class="bootstrap-timepicker col-md-3">
+					<div class="bootstrap-timepicker-widget dropdown-menu"><table><tbody><tr><td><a href="#" data-action="incrementHour"><i class="glyphicon glyphicon-chevron-up"></i></a></td><td class="separator">&nbsp;</td><td><a href="#" data-action="incrementMinute"><i class="glyphicon glyphicon-chevron-up"></i></a></td><td class="separator">&nbsp;</td><td class="meridian-column"><a href="#" data-action="toggleMeridian"><i class="glyphicon glyphicon-chevron-up"></i></a></td></tr><tr><td><span class="bootstrap-timepicker-hour">12</span></td> <td class="separator">:</td><td><span class="bootstrap-timepicker-minute">30</span></td> <td class="separator">&nbsp;</td><td><span class="bootstrap-timepicker-meridian">PM</span></td></tr><tr><td><a href="#" data-action="decrementHour"><i class="glyphicon glyphicon-chevron-down"></i></a></td><td class="separator"></td><td><a href="#" data-action="decrementMinute"><i class="glyphicon glyphicon-chevron-down"></i></a></td><td class="separator">&nbsp;</td><td><a href="#" data-action="toggleMeridian"><i class="glyphicon glyphicon-chevron-down"></i></a></td></tr></tbody></table></div>
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon">
+								<i class="fa fa-clock-o"></i>
+							</div>
+							<input type="text" name="TodoHour" class="form-control timepicker" placeholder="todo time">
+						</div>
+						<!-- /.input group -->
+					</div>
+					<!-- /.form group -->
+				</div>
+				<div class="input-group col-md-3">
+					<select class="form-control" name="Remind">
+						<option value="" disabled selected>Remind me</option>
+						<option value="15">15 minutes</option>
+						<option value="30">30 minutes</option>
+						<option value="45">45 minutes</option>
+						<option value="60">1 hour</option>
+						<option value="120">2 hour</option>
+						<option value="300">5 hour</option>
+						<option value="720">12 hour</option>
+						<option value="1439.59">1 day</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-block btn-success btn-xs">Create task</button>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+    $(function () {
+        $('#datepicker').datepicker({
+            autoclose: true
+        });
+        $(".timepicker").timepicker({
+            showInputs: false,
+            minuteStep: 15,
+            showMeridian: false,
+            defaultTime: false,
+        });
+    });
+</script>

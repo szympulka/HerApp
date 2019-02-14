@@ -1,0 +1,255 @@
+﻿@using Her.ViewModel.UserViewModels
+@model Her.ViewModel.UserViewModels.SettingViewModel
+
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<section class="content-header">
+	<h1>
+		Settings
+	</h1>
+	<ol class="breadcrumb">
+		<li><a asp-action="Index" asp-controller="Home"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Settings</li>
+	</ol>
+</section>*@
+
+<div class="row" style="padding-top:15px;">
+	<div class="col-md-4">
+
+	</div>
+	<div class="col-md-4">
+		<!-- Widget: user widget style 1 -->
+		<div class="box box-widget widget-user">
+			<!-- Add the bg color to the header using any of the bg-* classes -->
+			<div class="widget-user-header bg-black" style="background: url('../dist/img/photo1.png') center center;">
+				<h3 class="widget-user-username">@Model.Name @Model.Surname</h3>
+				<h5 class="widget-user-desc">@Model.BotName</h5>
+			</div>
+			<div class="widget-user-image">
+				<img class="img-circle" src="../dist/img/user3-128x128.jpg" alt="User Avatar">
+			</div>
+			<div class="box-footer" id="userProfil">
+				<div class="row">
+					<div class="col-sm-4 border-right">
+						<div class="description-block">
+							@if (Model.IsCreated)
+							{
+								<h5 class="description-header"><span class="fa  fa-check" style="color:green"></span></h5>
+							}
+							else
+							{
+								<h5 class="description-header config" onclick="window.location.href='../User/EditUserSettings'">Config account</h5>
+							}
+							<span class="description-text">Bot status</span>
+						</div>
+						<!-- /.description-block -->
+					</div>
+					<!-- /.col -->
+					<div class="col-sm-4 border-right">
+						<div class="description-block">
+							@if (Model.IsCreated)
+							{
+								<h5 class="description-header"><span class="fa  fa-check" style="color:green"></span></h5>
+							}
+							else
+							{
+								<h5 class="description-header config" onclick="window.location.href='../User/EditUserSettings'">Config account</h5>
+							}
+							<span class="description-text">Account status</span>
+						</div>
+						<!-- /.description-block -->
+					</div>
+					<!-- /.col -->
+					<div class="col-sm-4">
+						<div class="description-block">
+							<h5 class="description-header"><span class="fa  fa-check" style="color:green"></span></h5>
+							<span class="description-text">Server staus</span>
+						</div>
+						<!-- /.description-block -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</div>
+		</div>
+		<!-- /.widget-user -->
+	</div>
+
+	<div class="col-md-4"></div>
+</div>
+
+
+<div class="row" style="padding: 10px 10px 10px 10px">
+	<div class="col-md-12"></div>
+	<div class="col-md-4">
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">About Me</h3><h6 class="box-title" style="font-size: 12px"><a asp-action="EditUserSettings">[edit]</a></h6>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<strong><i class="fa fa-book margin-r-5"></i> Accounts</strong>
+
+				<p class="text-muted">
+					<img src="~/images/Skype.png" width="20" height="20" />
+					@Model.Skype
+				</p>
+				<p>
+					<img src="~/images/Cortana.png" width="20" height="20" />
+					@Model.Microsoft
+				</p>
+				<p>
+					<img src="~/images/Teams.png" width="19" height="20" style="margin-left: 2px;" />
+					@Model.Teams
+				</p>
+
+				<hr>
+
+				<strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+
+				<p class="text-muted">Wrocław</p>
+				<hr>
+
+				<strong><i class="fa fa-user margin-r-5"></i> Person</strong>
+
+				<p class="text-muted"><span class="fa fa-users"></span> @Model.Name @Model.Surname</p>
+				<p class="text-muted"><span class="fa fa-phone"></span> @Model.PhoneNumber</p>
+				<p class="text-muted"><span class="fa  fa-birthday-cake"></span> @Model.Birthdate</p>
+
+
+
+				<hr>
+
+				<strong><i class="fa fa-pencil margin-r-5"></i> Your interests</strong>
+
+				<p>
+					@for (int i = 0; i < Model.UserIntrest.Count; i++)
+					{
+						if (i % 3 == 0)
+						{
+							<span class="label label-info">@Model.UserIntrest[i]</span>
+						}
+						else if (i % 2 == 0)
+						{
+							<span class="label label-success">@Model.UserIntrest[i]</span>
+						}
+						else
+						{
+							<span class="label label-warning">@Model.UserIntrest[i]</span>
+						}
+					}
+				</p>
+
+				<hr>
+			</div>
+			<!-- /.box-body -->
+		</div>
+	</div>
+	<div class="col-md-8">
+		<div class="col-md-4">
+			<div class="box box-success">
+				<div class="box-header with-border">
+					<h3 class="box-title">Notification  </h3><h6 class="box-title" style="font-size: 12px"><a asp-action="EditUserSettings">[edit]</a></h6>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<strong><i class="fa  fa-hand-peace-o margin-r-5"></i> Your daily notification status</strong>
+					<p></p>
+					<p>
+						@Html.LabelFor(m => m.CustomNotifications.IsActive)
+						@if (Model.CustomNotifications.IsActive)
+						{
+							<span class="fa fa-check" style="color:green; margin-left:20px"></span>
+						}
+						else
+						{
+							<span class="fa fa-close" style="color:red;margin-left:20px"></span>
+						}
+					</p>
+					<p>
+						@Html.LabelFor(m => m.CustomNotifications.NotificationEvent)
+						@if (Model.CustomNotifications.NotificationEvent)
+						{
+							<span class="fa fa-check" style="color:green; margin-left:20px"></span>
+						}
+						else
+						{
+							<span class="fa fa-close" style="color:red;margin-left:20px"></span>
+						}
+					</p>
+					<p>
+						@Html.LabelFor(m => m.CustomNotifications.NotificationTask)
+						@if (Model.CustomNotifications.NotificationTask)
+						{
+							<span class="fa fa-check" style="color:green; margin-left:20px"></span>
+						}
+						else
+						{
+							<span class="fa fa-close" style="color:red;margin-left:20px"></span>
+						}
+					</p>
+					<p>
+						@Html.LabelFor(m => m.CustomNotifications.NotificationWeather)
+						@if (Model.CustomNotifications.NotificationWeather)
+						{
+							<span class="fa fa-check" style="color:green; margin-left:20px"></span>
+						}
+						else
+						{
+							<span class="fa fa-close" style="color:red;margin-left:20px"></span>
+						}
+					</p>
+					<p>
+						@Html.LabelFor(m => m.CustomNotifications.RememberTime)
+						<span> @Model.CustomNotifications.RememberTime.Hours:@Model.CustomNotifications.RememberTime.Minutes</span>
+					</p>
+				</div>
+			</div>
+			<div class="box box-success">
+				<div class="box-header with-border">
+					<h3 class="box-title">Settings  </h3><h6 class="box-title" style="font-size: 12px"><a asp-action="EditUserSettings">[edit]</a></h6>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<strong><i class="fa  fa-hand-peace-o margin-r-5"></i> Your custom settings</strong>
+					<p>
+						@Html.LabelFor(m => m.CustomSettings.DailyWroEvent) 
+						@if (Model.CustomSettings.DailyWroEvent)
+						{
+							<span class="fa fa-check" style="color:green; margin-left:20px"></span>
+						}
+						else
+						{
+							<span class="fa fa-close" style="color:red;margin-left:20px"></span>
+						}
+					</p>
+					<p>
+						@Html.LabelFor(m => m.CustomSettings.DailyMpkInfo) 
+						@if (Model.CustomSettings.DailyMpkInfo)
+						{
+							<span class="fa fa-check" style="color:green; margin-left:20px"></span>
+						}
+						else
+						{
+							<span class="fa fa-close" style="color:red;margin-left:20px"></span>
+						}
+					</p>
+					<p>
+						@Html.LabelFor(m => m.CustomSettings.DailyWeather) 
+						@if (Model.CustomSettings.DailyWeather)
+						{
+							<span class="fa fa-check" style="color:green; margin-left:20px"></span>
+						}
+						else
+						{
+							<span class="fa fa-close" style="color:red;margin-left:20px"></span>
+						}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

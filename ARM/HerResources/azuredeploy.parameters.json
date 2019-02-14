@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "ServicePlanName": {
+      "value": "herserviceplan"
+    },
+    "WebName": {
+      "value": "herweb"
+    },
+    "StorageName": {
+      "value": "herstorage"
+    },
+    "sendgridName": {
+      "value": "hermail"
+    },
+    "sendgridPassword": {
+      "value": "%Pierdolonehaslo95"
+    },
+    "sql-server-Name": {
+      "value": "hersqlserver"
+    },
+    "sql-server-AdminLogin": {
+      "value": "her"
+    },
+    "sql-server-AdminPassword": {
+      "value": "%Pierdolonehaslo95"
+    },
+    "SqlDatabaseName": {
+      "value": "db"
+    },
+    "FunctionAppName": {
+      "value": "herfunctions"
+    }
+  }
+}

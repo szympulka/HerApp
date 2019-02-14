@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "WebApp", "WebApp\WebApp.deployproj", "{5DBC507E-ECDF-4BD0-AC2E-A200EEDDFA86}"
+EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "Sendgrid", "Sendgrid\Sendgrid.deployproj", "{F45980CB-E996-470F-A209-FBCFA4F3A42A}"
+EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "HerResources", "HerResources\HerResources.deployproj", "{A95D8EB9-8A49-4206-92B0-852A0370D729}"
+EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "AzureMaps", "AzureMaps\AzureMaps.deployproj", "{0BF8893A-EA64-417B-AE7C-1D897C29A888}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DBC507E-ECDF-4BD0-AC2E-A200EEDDFA86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DBC507E-ECDF-4BD0-AC2E-A200EEDDFA86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DBC507E-ECDF-4BD0-AC2E-A200EEDDFA86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DBC507E-ECDF-4BD0-AC2E-A200EEDDFA86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F45980CB-E996-470F-A209-FBCFA4F3A42A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F45980CB-E996-470F-A209-FBCFA4F3A42A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F45980CB-E996-470F-A209-FBCFA4F3A42A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F45980CB-E996-470F-A209-FBCFA4F3A42A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A95D8EB9-8A49-4206-92B0-852A0370D729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A95D8EB9-8A49-4206-92B0-852A0370D729}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A95D8EB9-8A49-4206-92B0-852A0370D729}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A95D8EB9-8A49-4206-92B0-852A0370D729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BF8893A-EA64-417B-AE7C-1D897C29A888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BF8893A-EA64-417B-AE7C-1D897C29A888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BF8893A-EA64-417B-AE7C-1D897C29A888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BF8893A-EA64-417B-AE7C-1D897C29A888}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8973A2A7-51C5-4178-9211-4C4E471325B3}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://hercode.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = WebApp\\WebApp.deployproj
+		SccProjectName1 = WebApp
+		SccLocalPath1 = WebApp
+		SccProjectUniqueName2 = Sendgrid\\Sendgrid.deployproj
+		SccProjectName2 = Sendgrid
+		SccLocalPath2 = Sendgrid
+		SccProjectUniqueName3 = HerResources\\HerResources.deployproj
+		SccProjectName3 = HerResources
+		SccLocalPath3 = HerResources
+		SccProjectUniqueName4 = AzureMaps\\AzureMaps.deployproj
+		SccProjectName4 = AzureMaps
+		SccLocalPath4 = AzureMaps
+	EndGlobalSection
+EndGlobal

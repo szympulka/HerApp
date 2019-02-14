@@ -1,0 +1,12 @@
+﻿{
+	"disabled": false,
+	"bindings": [
+			{
+				"type": "queueTrigger",
+				"direction": "in",
+				"name": "notificationmailqueue",
+				"queueName": "notificationmailqueue",
+				"connection": "DefaultEndpointsProtocol=https;AccountName=herstorage;AccountKey=3hgVDRVErABFD79t5ZUTQD0dAPdqhjQ+QoB1kBJBekUoR38Ld/hTvpZ9QI7Yq4abAivKCFUJDrUJpMl+9B0vog==;EndpointSuffix=core.windows.net"
+			}
+	]
+}

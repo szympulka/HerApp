@@ -1,0 +1,302 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"ServicePlanName": {
+			"type": "string",
+			"minLength": 1
+		},
+		"ServicePlanSkuName": {
+			"type": "string",
+			"defaultValue": "F1",
+			"allowedValues": [
+				"F1",
+				"D1",
+				"B1",
+				"B2",
+				"B3",
+				"S1",
+				"S2",
+				"S3",
+				"P1",
+				"P2",
+				"P3",
+				"P4"
+			],
+			"metadata": {
+				"description": "Describes plan's pricing tier and capacity. Check details at https://azure.microsoft.com/en-us/pricing/details/app-service/"
+			}
+		},
+		"StorageType": {
+			"type": "string",
+			"defaultValue": "Standard_LRS",
+			"allowedValues": [
+				"Standard_LRS",
+				"Standard_ZRS",
+				"Standard_GRS",
+				"Standard_RAGRS",
+				"Premium_LRS"
+			]
+		},
+		"WebName": {
+			"type": "string"
+		},
+		"WebApiName": {
+			"type": "string"
+		},
+		"StorageName": {
+			"type": "string"
+		},
+		"sendgridName": {
+			"type": "string",
+			"minLength": 1
+		},
+		"sendgridPassword": {
+			"type": "securestring",
+			"minLength": 1
+		},
+		"sql-server-Name": {
+			"type": "string",
+			"minLength": 1
+		},
+		"sql-server-AdminLogin": {
+			"type": "string",
+			"minLength": 1
+		},
+		"sql-server-AdminPassword": {
+			"type": "securestring"
+		},
+		"SqlDatabaseName": {
+			"type": "string",
+			"minLength": 1
+		},
+
+		"SqlLocation": {
+			"type": "string",
+			"defaultValue": "EastUS",
+			"allowedValues": [
+				"NorthEurope",
+				"WestEurope",
+				"EastUS",
+				"WestUS",
+				"NorthUS",
+				"CentralUS",
+				"JapanEast",
+				"JapanWest",
+				"UkWest",
+				"EastAsia"
+
+			],
+			"metadata": {
+				"description": "Describes the sql location"
+			}
+		},
+		"SqlCollation": {
+			"type": "string",
+			"minLength": 1,
+			"defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+		},
+		"SqlEdition": {
+			"type": "string",
+			"defaultValue": "Basic",
+			"allowedValues": [
+				"Basic",
+				"Standard",
+				"Premium"
+			]
+		},
+		"SqlServiceType": {
+			"type": "string",
+			"defaultValue": "Basic",
+			"allowedValues": [
+				"Basic",
+				"S0",
+				"S1",
+				"S2",
+				"P1",
+				"P2",
+				"P3"
+			],
+			"metadata": {
+				"description": "Describes the performance level for Edition"
+			}
+		},
+		"FunctionAppName": {
+			"type": "string"
+		},
+		"AzureMapsName": {
+			"type": "string",
+			"metadata": {
+				"description": "Azure Maps"
+			}
+		}
+
+	},
+	"variables": {
+		"pricingSpec": "S0"
+	},
+	"resources": [
+		{
+			"name": "[parameters('ServicePlanName')]",
+			"type": "Microsoft.Web/serverfarms",
+			"location": "[resourceGroup().location]",
+			"apiVersion": "2015-08-01",
+			"sku": {
+				"name": "[parameters('ServicePlanSkuName')]"
+			},
+			"dependsOn": [],
+			"tags": {
+				"displayName": "ServicePlan"
+			},
+			"properties": {
+				"name": "[parameters('ServicePlanName')]",
+				"numberOfWorkers": 1
+			}
+		},
+		{
+			"name": "[parameters('WebName')]",
+			"type": "Microsoft.Web/sites",
+			"location": "[resourceGroup().location]",
+			"apiVersion": "2015-08-01",
+			"dependsOn": [
+				"[resourceId('Microsoft.Web/serverfarms', parameters('ServicePlanName'))]"
+			],
+			"tags": {
+				"[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('ServicePlanName')))]": "Resource",
+				"displayName": "Web"
+			},
+			"properties": {
+				"name": "[parameters('WebName')]",
+				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('ServicePlanName'))]"
+			}
+		},
+		{
+			"name": "[parameters('WebApiName')]",
+			"type": "Microsoft.Web/sites",
+			"location": "[resourceGroup().location]",
+			"apiVersion": "2015-08-01",
+			"dependsOn": [
+				"[resourceId('Microsoft.Web/serverfarms', parameters('ServicePlanName'))]"
+			],
+			"tags": {
+				"[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('ServicePlanName')))]": "Resource",
+				"displayName": "WebApi"
+			},
+			"properties": {
+				"name": "[parameters('WebApiName')]",
+				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('ServicePlanName'))]",
+			}
+		},
+
+		{
+			"name": "[parameters('StorageName')]",
+			"type": "Microsoft.Storage/storageAccounts",
+			"location": "[resourceGroup().location]",
+			"apiVersion": "2016-01-01",
+			"sku": {
+				"name": "[parameters('StorageType')]"
+			},
+			"dependsOn": [],
+			"tags": {
+				"displayName": "Storage"
+			},
+			"kind": "Storage"
+		},
+		{
+			"apiVersion": "2015-01-01",
+			"location": "[resourceGroup().location]",
+			"name": "[parameters('sendgridName')]",
+			"plan": {
+				"name": "free",
+				"product": "sendgrid_azure",
+				"promotionCode": "",
+				"publisher": "Sendgrid"
+			},
+			"properties": {
+				"acceptMarketingEmails": "0",
+				"email": "",
+				"password": "[parameters('sendgridPassword')]"
+			},
+			"tags": {
+				"displayName": "Mail"
+			},
+			"type": "Sendgrid.Email/accounts"
+		},
+		{
+			"name": "[parameters('sql-server-Name')]",
+			"type": "Microsoft.Sql/servers",
+			"location": "[parameters('SqlLocation')]",
+			"apiVersion": "2014-04-01-preview",
+			"dependsOn": [],
+			"tags": {
+				"displayName": "SqlServer"
+			},
+			"properties": {
+				"administratorLogin": "[parameters('sql-server-AdminLogin')]",
+				"administratorLoginPassword": "[parameters('sql-server-AdminPassword')]"
+			},
+			"resources": [
+				//{
+				//	"name": "AllowAllWindowsAzureIps",
+				//	"type": "firewallrules",
+				//	"location": "[variables('SqlLocation')]",
+				//	"apiVersion": "2014-04-01-preview",
+				//	"dependsOn": [
+				//		"[resourceId('Microsoft.Sql/servers', parameters('sql-server-devName'))]"
+				//	],
+				//	"properties": {
+				//		"startIpAddress": "0.0.0.0",
+				//		"endIpAddress": "0.0.0.0"
+				//	}
+				//},
+				//{
+				//	"name": "[parameters('SqlDatabaseName')]",
+				//	"type": "databases",
+				//	"location": "[parameters('SqlLocation')]",
+				//	"apiVersion": "2014-04-01-preview",
+				//	"dependsOn": [
+				//		"[resourceId('Microsoft.Sql/servers', parameters('sql-server-Name'))]"
+				//	],
+				//	"tags": {
+				//		"displayName": "SqlDatabase"
+				//	},
+				//	"properties": {
+				//		"collation": "[parameters('DevCollation')]",
+				//		"edition": "[parameters('DevEdition')]",
+				//		"maxSizeBytes": "1073741824",
+				//		"requestedServiceObjectiveName": "[parameters('DevRequestedServiceObjectiveName')]"
+				//	}
+				//}
+			]
+		},
+		{
+			"apiVersion": "2015-08-01",
+			"type": "Microsoft.Web/sites",
+			"name": "[parameters('functionAppName')]",
+			"tags": {
+				"displayName": "Functions"
+			},
+			"location": "[resourceGroup().location]",
+			"kind": "functionapp",
+			"properties": {
+				"name": "[parameters('FunctionAppName')]",
+				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('ServicePlanName'))]"
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Web/serverfarms', parameters('ServicePlanName'))]",
+				"[resourceId('Microsoft.Storage/storageAccounts', parameters('StorageName'))]"
+			]
+		},
+		{
+			"type": "Microsoft.Maps/accounts",
+			"sku": {
+				"name": "[variables('pricingSpec')]"
+			},
+			"name": "[parameters('AzureMapsName')]",
+			"apiVersion": "2018-05-01",
+			"location": "global",
+			"properties": {}
+		}
+	],
+	"outputs": {}
+}

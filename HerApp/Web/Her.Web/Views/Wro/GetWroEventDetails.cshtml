@@ -1,0 +1,75 @@
+﻿@model Her.ViewModel.WrocViewModels.WroEventDetailsViewModel
+
+@{
+	ViewData["Title"] = "GetWroEventDetails";
+}
+<section class="content-header">
+	<h1>
+		Event
+		<small>@Model.Title</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li><a asp-controller="Wro" asp-action="GetWroEvents">Wroc</a></li>
+		<li class="active">Event</li>
+	</ol>
+</section>
+
+<section class="content">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="box box-primary">
+
+				<div class="box-header with-border">
+					<h3 class="box-title">@Model.Title</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<strong><i class="fa fa-book margin-r-5"></i> Date</strong>
+					<p class="text-muted">
+						from @Model.StartDate to @Model.EndDate
+					</p>
+					<hr>
+					<strong><i class="fa fa-map-marker margin-r-5"></i>Address</strong>
+					<p class="text-muted">@Model.PlaceName - @Model.Address</p>
+					<hr>
+					<strong><i class="fa fa-pencil margin-r-5"></i> Categories</strong>
+					<p>
+						<span class="label label-success">@Model.TypeName</span>
+						@foreach (var item in Model.Categories)
+						{
+							<span class="label label-success">@item</span>
+						}
+					</p>
+					<hr>
+					<strong><i class="fa  fa-circle-o margin-r-5"></i>Link</strong>
+					@if (!string.IsNullOrEmpty(Model.ExternalLink))
+					{
+						<p><a href="@Model.ExternalLink">ExternalLink</a></p>
+					}
+					<p><a href="@Model.PageLink">Link</a></p>
+					<hr />
+					<strong><i class="fa fa-file-text-o margin-r-5"></i> More inforamtions</strong>
+					<p><b>Ticketing:</b>  @Model.Ticketing</p>
+					@if (Model.Premiere)
+					{
+						<p><b>Premiere:</b> <span class="fa fa-check" style="color:green;"></span></p>
+					}
+					else
+					{
+						<p><b>Premiere:</b> <span class="fa fa-close" style="color:red;"></span></p>
+					}
+				</div>
+			</div>
+			<div class="box box-default">
+				<img src="@Model.MainImage" style="max-width:100%;max-height:100%;" />
+				<span style="float:right">@Model.MainImageDescription</span>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<section class="invoice" style="font-size:18px; margin-top:0px;">
+				<p><h3><b>@Model.Title</b></h3></p>
+				@Html.Raw(Model.LongDescription)
+			</section>		</div>
+	</div>
+</section>

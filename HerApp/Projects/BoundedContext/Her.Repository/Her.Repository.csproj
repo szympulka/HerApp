@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DbContext\Her.Context\Her.Context.csproj" />
+    <ProjectReference Include="..\Her.Common\Her.Common.csproj" />
+    <ProjectReference Include="..\Her.Domain\Her.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,125 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{EBC3A250-81DC-4A04-BFDA-CF25F6A7FB4F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BoundedContext", "BoundedContext", "{BE538C53-8BBC-4ACC-9346-39566A40CC85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{630004BF-A4A6-4621-8F7E-35C306D7AE34}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Her.ViewModel", "Projects\BoundedContext\Her.ViewModel\Her.ViewModel.csproj", "{E9CDF0C8-D010-44B5-A923-3DF0A29B7E61}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Her.Common", "Projects\BoundedContext\Her.Common\Her.Common.csproj", "{9251CC89-6C6C-4395-9795-8ACB28052485}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Her.Web", "Web\Her.Web\Her.Web.csproj", "{54403228-5585-4F4B-875B-3DA32A673480}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbContext", "DbContext", "{34500492-0A06-4222-9894-47D376F6F0CD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Her.Context", "Projects\DbContext\Her.Context\Her.Context.csproj", "{1BE5300F-29B0-41D2-A85A-15BA63D6DD88}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Her.Services", "Projects\BoundedContext\Her.Services\Her.Services.csproj", "{73F4F2C6-CBA8-45FF-82AB-46F6D7AB582B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Her.Repository", "Projects\BoundedContext\Her.Repository\Her.Repository.csproj", "{559E84A1-7F2C-4DC5-933A-6EDA79C648A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Her.Domain", "Projects\BoundedContext\Her.Domain\Her.Domain.csproj", "{BEF4F9E5-2779-4184-A7F9-BC779F652261}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Her.FunctionsViewModel", "Projects\BoundedContext\Her.FunctionsViewModel\Her.FunctionsViewModel.csproj", "{2F0831C0-9922-4DE1-8D68-1705153BFF2F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9CDF0C8-D010-44B5-A923-3DF0A29B7E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9CDF0C8-D010-44B5-A923-3DF0A29B7E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9CDF0C8-D010-44B5-A923-3DF0A29B7E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9CDF0C8-D010-44B5-A923-3DF0A29B7E61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9251CC89-6C6C-4395-9795-8ACB28052485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9251CC89-6C6C-4395-9795-8ACB28052485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9251CC89-6C6C-4395-9795-8ACB28052485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9251CC89-6C6C-4395-9795-8ACB28052485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54403228-5585-4F4B-875B-3DA32A673480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54403228-5585-4F4B-875B-3DA32A673480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54403228-5585-4F4B-875B-3DA32A673480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54403228-5585-4F4B-875B-3DA32A673480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BE5300F-29B0-41D2-A85A-15BA63D6DD88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BE5300F-29B0-41D2-A85A-15BA63D6DD88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BE5300F-29B0-41D2-A85A-15BA63D6DD88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BE5300F-29B0-41D2-A85A-15BA63D6DD88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73F4F2C6-CBA8-45FF-82AB-46F6D7AB582B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73F4F2C6-CBA8-45FF-82AB-46F6D7AB582B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73F4F2C6-CBA8-45FF-82AB-46F6D7AB582B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73F4F2C6-CBA8-45FF-82AB-46F6D7AB582B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{559E84A1-7F2C-4DC5-933A-6EDA79C648A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{559E84A1-7F2C-4DC5-933A-6EDA79C648A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{559E84A1-7F2C-4DC5-933A-6EDA79C648A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{559E84A1-7F2C-4DC5-933A-6EDA79C648A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEF4F9E5-2779-4184-A7F9-BC779F652261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEF4F9E5-2779-4184-A7F9-BC779F652261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEF4F9E5-2779-4184-A7F9-BC779F652261}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEF4F9E5-2779-4184-A7F9-BC779F652261}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F0831C0-9922-4DE1-8D68-1705153BFF2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F0831C0-9922-4DE1-8D68-1705153BFF2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F0831C0-9922-4DE1-8D68-1705153BFF2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F0831C0-9922-4DE1-8D68-1705153BFF2F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BE538C53-8BBC-4ACC-9346-39566A40CC85} = {630004BF-A4A6-4621-8F7E-35C306D7AE34}
+		{E9CDF0C8-D010-44B5-A923-3DF0A29B7E61} = {BE538C53-8BBC-4ACC-9346-39566A40CC85}
+		{9251CC89-6C6C-4395-9795-8ACB28052485} = {BE538C53-8BBC-4ACC-9346-39566A40CC85}
+		{54403228-5585-4F4B-875B-3DA32A673480} = {EBC3A250-81DC-4A04-BFDA-CF25F6A7FB4F}
+		{34500492-0A06-4222-9894-47D376F6F0CD} = {630004BF-A4A6-4621-8F7E-35C306D7AE34}
+		{1BE5300F-29B0-41D2-A85A-15BA63D6DD88} = {34500492-0A06-4222-9894-47D376F6F0CD}
+		{73F4F2C6-CBA8-45FF-82AB-46F6D7AB582B} = {BE538C53-8BBC-4ACC-9346-39566A40CC85}
+		{559E84A1-7F2C-4DC5-933A-6EDA79C648A1} = {BE538C53-8BBC-4ACC-9346-39566A40CC85}
+		{BEF4F9E5-2779-4184-A7F9-BC779F652261} = {BE538C53-8BBC-4ACC-9346-39566A40CC85}
+		{2F0831C0-9922-4DE1-8D68-1705153BFF2F} = {BE538C53-8BBC-4ACC-9346-39566A40CC85}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58D8F9FA-02D5-4C12-BCB1-5F09A2A81722}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://hercode.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Projects\\BoundedContext\\Her.Domain\\Her.Domain.csproj
+		SccProjectTopLevelParentUniqueName1 = Her.sln
+		SccProjectName1 = Projects/BoundedContext/Her.Domain
+		SccLocalPath1 = Projects\\BoundedContext\\Her.Domain
+		SccProjectUniqueName2 = Projects\\BoundedContext\\Her.Repository\\Her.Repository.csproj
+		SccProjectTopLevelParentUniqueName2 = Her.sln
+		SccProjectName2 = Projects/BoundedContext/Her.Repository
+		SccLocalPath2 = Projects\\BoundedContext\\Her.Repository
+		SccProjectUniqueName3 = Projects\\BoundedContext\\Her.Services\\Her.Services.csproj
+		SccProjectTopLevelParentUniqueName3 = Her.sln
+		SccProjectName3 = Projects/BoundedContext/Her.Services
+		SccLocalPath3 = Projects\\BoundedContext\\Her.Services
+		SccProjectUniqueName4 = Projects\\DbContext\\Her.Context\\Her.Context.csproj
+		SccProjectTopLevelParentUniqueName4 = Her.sln
+		SccProjectName4 = Projects/DbContext/Her.Context
+		SccLocalPath4 = Projects\\DbContext\\Her.Context
+		SccProjectUniqueName5 = Web\\Her.Web\\Her.Web.csproj
+		SccProjectTopLevelParentUniqueName5 = Her.sln
+		SccProjectName5 = Web/Her.Web
+		SccLocalPath5 = Web\\Her.Web
+		SccProjectUniqueName6 = Projects\\BoundedContext\\Her.Common\\Her.Common.csproj
+		SccProjectTopLevelParentUniqueName6 = Her.sln
+		SccProjectName6 = Projects/BoundedContext/Her.Common
+		SccLocalPath6 = Projects\\BoundedContext\\Her.Common
+		SccProjectUniqueName7 = Projects\\BoundedContext\\Her.ViewModel\\Her.ViewModel.csproj
+		SccProjectTopLevelParentUniqueName7 = Her.sln
+		SccProjectName7 = Projects/BoundedContext/Her.ViewModel
+		SccLocalPath7 = Projects\\BoundedContext\\Her.ViewModel
+		SccProjectUniqueName8 = Projects\\BoundedContext\\Her.FunctionsViewModel\\Her.FunctionsViewModel.csproj
+		SccProjectTopLevelParentUniqueName8 = Her.sln
+		SccProjectName8 = Projects/BoundedContext/Her.FunctionsViewModel
+		SccLocalPath8 = Projects\\BoundedContext\\Her.FunctionsViewModel
+	EndGlobalSection
+EndGlobal
